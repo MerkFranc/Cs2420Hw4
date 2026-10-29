@@ -137,13 +137,16 @@ public class HashTable
 /* ======================= A1: PREDICT THE OUTPUT =======================
    Write what each line prints BEFORE you run the code.
 
-   Line 1:
-   Line 2:
-   Line 3:
-   Line 4:
-   Line 5:
+   Line 1: 77
+   Line 2: 88
+   Line 3: True
+   Line 4: Lab
+   Line 5: 3
 
    Why do Line 4 and Line 5 act differently? (2 or 3 sentences)
+   List<int> is a refference type, so the tuple stores a reference to the list not the List itself.
+   Both d.Scores and e.Scores store a reference to the same list.
+   e.Tag = "Exam"; changes e.Tags reference to the string "Exam" not the value itslef.
 
 */
 
