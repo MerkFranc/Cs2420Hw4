@@ -71,15 +71,45 @@ public class Program
     static (string Word, int Count) MostFrequentWord(string text)
     {
         string[] words = text.ToLower().Split(' ');
-        // TODO: count each word with a Dictionary<string, int>, then find the biggest count
-        return ("", 0);
+        Dictionary<string, int> counts = new Dictionary<string, int>();
+
+        // Count each word
+        foreach (string word in words)
+        {
+            if (counts.ContainsKey(word))
+            {
+                counts[word]++;
+            }
+            else
+            {
+                counts[word] = 1;
+            }
+        }
+
+        // Find the most frequent word
+        string mostFrequent = "";
+        int maxCount = 0;
+
+        foreach (var pair in counts)
+        {
+            if (pair.Value > maxCount)
+            {
+                mostFrequent = pair.Key;
+                maxCount = pair.Value;
+            }
+        }
+
+        return (mostFrequent, maxCount);
     }
 
     // B3: Return the names that are on BOTH lists. Use a HashSet.
     static HashSet<string> CommonNames(string[] first, string[] second)
     {
-        // TODO
-        return new HashSet<string>();
+        HashSet<string> names = new HashSet<string>(first);
+
+        names.IntersectWith(second);
+
+        return names;
     }
 }
 
