@@ -20,7 +20,7 @@ public class Program
         Console.WriteLine("== B2 HashTable ==");
         var ht = new HashTable();
         ht.Set("nails", 100); ht.Set("tile", 50); ht.Set("lumber", 80);
-        ht.Set("bolts", 0);   ht.Set("screws", 140);
+        ht.Set("bolts", 0); ht.Set("screws", 140);
         Console.WriteLine(ht.ContainsKey("lumber"));
         Console.WriteLine(ht.ContainsKey("glue"));
         Console.WriteLine(ht.TryGet("bolts", out int v1) + " " + v1);
@@ -47,8 +47,21 @@ public class Program
     //     Use only ONE loop.
     static (int Min, int Max, double Average) Summarize(int[] scores)
     {
-        // TODO
-        return (0, 0, 0);
+        int min = scores[0];
+        int max = scores[0];
+        double total = 0;
+
+        for (int i = 0; i < scores.Length; i++)
+        {
+            int score = scores[i];
+
+            if (score < min) min = score;
+            if (score > max) max = score;
+
+            total += score;
+        }
+
+        return (min, max, total / scores.Length);
     }
 
     // ======================= PART B: HASH MAPS =======================
